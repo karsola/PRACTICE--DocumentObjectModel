@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input class="input-val" placeholder="Input Item Cost" onkeydown="keyInput(event)" >
+  <button onclick="calculateTotal();">Calculate</button>
+  <p class="js-total-cost"></p>
+  <script>
+    function calculateTotal(){
+      const inputCost = document.querySelector('.input-val');
+      let totalCost = Number(inputCost.value)*100;
+      if(totalCost<4000){
+        totalCost += 1000;
+      } 
+        document.querySelector('.js-total-cost').innerHTML = `$${(totalCost)/100}`
+    }
+    function keyInput(event){
+      if(event.key === 'Enter'){
+        calculateTotal();
+      }
+    }
+  </script>
+</body>
+</html>

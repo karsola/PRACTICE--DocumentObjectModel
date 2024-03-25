@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input placeholder="Input Anything" class="js-input" onkeyup="onKeyP(event)">
+  <button onclick="print()">
+    Enter
+  </button>
+  <p class='js-p'></p>
+  <script>
+    
+    function print(){
+      const anyVal = document.querySelector('.js-input');
+      document.querySelector('.js-p').innerHTML = `${anyVal.value}`
+    }
+    function onKeyP(event){
+      if (event.key === "Enter"){
+        print();
+      }
+    }
+  </script>
+</body>
+</html>

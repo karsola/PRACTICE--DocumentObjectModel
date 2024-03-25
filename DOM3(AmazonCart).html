@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btn-qty" onclick="
+    showQuantity();">Show Quantity</button>
+  <button class="btn-cart" onclick="
+    showQuantity();">Add to Cart</button>
+  <button class="btn-2" onclick="
+    add(2);
+    showQuantity();">+2</button>
+    <button class="btn-3" onclick="
+    add(3);
+    showQuantity();">+3</button>
+    <button class="btn-4" onclick="
+    add(4);
+    showQuantity();">+4</button>
+    <button class="btn-5" onclick="
+    add(5);
+    showQuantity();">+5</button>
+  <button class="btn-remove" onclick="
+    remove();
+    showQuantity();">Remove from cart</button>
+  <button class="btn-6" onclick="
+    sub(2);
+    showQuantity();">-2</button>
+  <button class="btn-7" onclick="
+    sub(3);
+    showQuantity();">-3</button>
+  <p class="js-print"></p>
+
+  <script>  
+    let qty = JSON.parse(localStorage.getItem('qty'));
+
+  function showQuantity(){
+    if(qty===null){
+      qty = 0;
+    }
+    document.querySelector('.js-print').innerHTML = `Cart quantity: ${qty}`;
+    console.log(typeof qty);
+  };
+
+  function add(val){
+    qty+=val; 
+    localStorage.setItem('qty',JSON.stringify(qty));
+  }
+
+  function sub(val){
+    qty-=val; 
+    localStorage.setItem('qty',JSON.stringify(qty));
+  }
+
+  function remove(){
+    qty = 0;
+    localStorage.removeItem('qty');
+  }
+  </script>
+</body>
+</html>
